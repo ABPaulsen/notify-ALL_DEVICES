@@ -1,0 +1,28 @@
+# Notify all devices on list
+# Insert into configuration.yaml entry
+notify:
+  - name: ALL_DEVICES
+    platform: group
+    services:
+      - service: mobile_app_iphone1
+      - service: mobile_app_ipad2
+      - service: mobile_app_phone3
+      
+      
+ # Then you can use following notification service in an automation: service: notify.all_devices
+ # Example (Water sensor gets moist, notify all
+alias: "Water Alarm: Bryggers vask"
+description: ""
+trigger:
+  - type: moist
+    platform: device
+    device_id: 4b2869a36169fec148969b254a4ac932
+    entity_id: binary_sensor.water_sensor_2_vask
+    domain: binary_sensor
+condition: []
+action:
+  - service: notify.all_devices
+    data:
+      message: Bryggers!
+      title: Water alarm
+mode: single
