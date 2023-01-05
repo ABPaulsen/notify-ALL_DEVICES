@@ -10,7 +10,7 @@ notify:
       
       
  # Then you can use following notification service in an automation: service: notify.all_devices
- # Example (Water sensor gets moist, notify all
+ # Example (Water sensor gets moist, notify all)
 alias: "Water Alarm: Bryggers vask"
 description: ""
 trigger:
